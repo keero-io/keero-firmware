@@ -1,16 +1,14 @@
 # Keero Bot – Firmware
 
-<p align="center">
-  <img src="../keero-hardware/assets/hero.png" alt="Keero Bot Firmware" width="100%" />
-</p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/status-in%20development-orange" alt="Status" />
-  <img src="https://img.shields.io/badge/firmware-open--source-blue" alt="Open Source Firmware" />
-  <img src="https://img.shields.io/badge/platform-ESP32--S3-green" alt="ESP32-S3" />
-</p>
+![Keero Bot](./assets/hero.png)
 
----
+[![PCBWay Sponsorship](https://img.shields.io/badge/Sponsored%20by-PCBWay-red?style=for-the-badge&logo=pcbway)](https://www.pcbway.com/)
+
+![Status](https://img.shields.io/badge/status-in%20development-orange)
+![Hardware](https://img.shields.io/badge/hardware-open--source-blue)
+![Platform](https://img.shields.io/badge/platform-ESP32--S3-green)
+
 
 The Keero Bot firmware powers the hardware platform by handling communication, interaction, and AI-driven behavior.
 
