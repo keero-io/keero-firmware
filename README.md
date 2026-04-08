@@ -1,144 +1,100 @@
-# Keero Bot – Firmware
-
+# Keero Bot Firmware
 
 ![Keero Bot](./assets/hero.png)
 
 [![PCBWay Sponsorship](https://img.shields.io/badge/Sponsored%20by-PCBWay-red?style=for-the-badge&logo=pcbway)](https://www.pcbway.com/)
 
-![Status](https://img.shields.io/badge/status-in%20development-orange)
-![Hardware](https://img.shields.io/badge/hardware-open--source-blue)
-![Platform](https://img.shields.io/badge/platform-ESP32--S3-green)
+![Status](https://img.shields.io/badge/status-active%20tracks%20module-orange)
+![Firmware](https://img.shields.io/badge/firmware-open--source-brightgreen)
+![Platform](https://img.shields.io/badge/platform-ESP32--S3%20%2B%20ESP32--C3-blue)
 
+Keero Bot firmware is the open-source software layer behind the Keero hardware platform.
 
-The Keero Bot firmware powers the hardware platform by handling communication, interaction, and AI-driven behavior.
+Today, the most mature public part of the repository is the mobility-oriented `tracks` module firmware. It already demonstrates real motor, lighting, and power-management behavior on hardware, while the broader Keero mainboard firmware continues to evolve.
 
-It is designed to run on the ESP32-S3 and act as the central logic layer connecting all hardware components.
+## Current Public Scope
 
----
+The firmware repository currently communicates two things clearly:
 
-## 🚀 Overview
+- the full Keero platform firmware is still in progress
+- the `tracks` module is already real, testable, and open source
 
-The firmware is responsible for:
+That makes the repo useful both as a public engineering signal and as the software foundation for future mobility demos.
 
-- Device control and hardware abstraction  
-- Sensor data processing  
-- Audio input/output handling  
-- Display rendering  
-- Communication with external services  
-- AI interaction logic  
+## Tracks Module
 
-It is built with a modular structure to support future expansion and additional hardware modules.
+The `modules/tracks` firmware is the most concrete public implementation in the repo.
 
----
+It covers:
 
-## 🧠 Core Features
+- drive control for the mobility module
+- lighting behavior
+- battery monitoring and power-related logic
+- serial command handling for integration and testing
+- Arduino and PlatformIO-based development on ESP32-C3
 
-### ⚙️ Hardware Control
-- GPIO, I2C, SPI, UART handling  
-- Camera control (OV2640)  
-- Display control (OLED)  
-- Power management integration (PMIC)
+This part is fully Keero-authored firmware and is intended to stay public.
 
-### 🔊 Audio System
-- I2S microphone input  
-- Audio output via amplifier  
-- Real-time audio handling  
+The current public mobility setup also has a documented reference parts set for the chassis, pogo connection, and 3V motors so the open firmware story stays tied to a real, reproducible demo configuration.
 
-### 📳 Interaction
-- Haptic feedback control  
-- Button handling  
-- Motion-based triggers (accelerometer)
+## Origin and Attribution
 
-### 📡 Connectivity
-- WiFi / BLE communication  
-- External module communication (UART via pogo pins)
+The mobility module direction is inspired by the ESP-SparkBot project.
 
-### 🤖 AI Layer (Planned / In Progress)
-- State-driven behavior system  
-- Emotion/state engine  
-- Integration with AI services (ChatGPT, etc.)
-- Remote messaging (server / Telegram)
+For that reason, Keero keeps the public mechanical references and credits visible instead of treating that part as a closed original design. The current Keero adaptation builds on that direction while moving the module toward the Keero platform architecture.
 
----
+## What Keero Changed
 
-## 📂 Repository Structure
+The mobility PCB direction follows the general SparkBot-style tracks concept, but the Keero version was updated around the `ESP32-C3-WROOM-M2` so it works cleanly with:
+
+- Arduino
+- PlatformIO
+- the current Keero firmware workflow
+
+That means the public story is honest:
+
+- the mobility concept did not start from zero
+- the firmware stack and working C3-based adaptation are Keero work
+
+## Repository Structure
 
 ```text
 keero-firmware/
-├── src/
-├── include/
-├── lib/
-├── configs/
-├── scripts/
-├── docs/
-└── platformio.ini
-````
+├── assets/
+├── modules/
+│   └── tracks/
+│       ├── config/
+│       ├── lib/
+│       ├── src/
+│       └── platformio.ini
+├── mainboard/
+└── README.md
+```
 
----
+## Development Notes
 
-## ⚙️ Setup
+The public firmware emphasis is intentionally practical rather than overproduced.
 
-### Requirements
+Right now the repository is meant to show:
 
-* ESP32-S3 board
-* PlatformIO (recommended) or Arduino IDE
+- credible embedded implementation work
+- a real module bring-up path
+- a software foundation that can expand into the broader Keero Bot system
 
-### Flashing
+## Status
 
-1. Connect device via USB
-2. Build firmware
-3. Upload to device
+- Full Keero mainboard firmware: coming soon
+- Tracks module firmware: active and public
+- Mobility module integration: working and evolving
 
-(Full instructions will be added in future updates)
+## PCBWay Relevance
 
----
+For sponsors and prototyping partners, the firmware repo matters because it proves the hardware project is not static.
 
-## 🧪 Status
+It shows:
 
-* Core firmware: 🚧 In development
-* Hardware integration: 🚧 In progress
-* AI features: 🚧 Planned
-
----
-
-## 🎯 Goals
-
-* Modular and scalable firmware architecture
-* Tight integration with hardware platform
-* Real-time interaction capabilities
-* AI-driven behavior and communication
-
----
-
-## ⚠️ License
-
-This firmware is open-source but **not intended for unrestricted commercial use**.
-
-Commercial usage requires explicit permission.
-
----
-
-## 🌐 About Keero
-
-Keero is focused on building experimental AI-driven hardware platforms that combine embedded systems with real-world interaction.
-
-````
-
----
-
-# 🔥 Ako želiš još jače (preporučam)
-
-Sljedeći upgrade koji ti diže projekt:
-
-👉 dodati sekciju:
-```md
-## 🧠 Architecture
-````
-
-gdje objasniš:
-
-* event loop
-* state machine
-* taskovi
+- a working software path for a real module
+- iterative prototype readiness
+- a credible route from electronics to behavior
 
 ![PCBWay](./assets/pcbway.jpeg)
